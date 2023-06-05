@@ -75,7 +75,7 @@ def draw(window, background, bg_image, player):
 #inside of main, run event loops (ie whats hanlding the collisions etc.)
 def main(window):
     clock = pygame.time.Clock()
-    background, bg_image = get_background("Blue.png")
+    background, bg_image = get_background("starrynight.png")
 
     player = Player(100, 100, 50, 50)
 
