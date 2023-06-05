@@ -72,6 +72,16 @@ def draw(window, background, bg_image, player):
 
     pygame.display.update()
 
+def handle_move(player):
+    keys = pygame.key.get_pressed()
+
+    player.x_vel = 0 #only want to move while holding down the left or right key so set this to zero at this point
+
+    if keys[pygame.K_LEFT]:
+        player.move_left(PLAYER_VEL)
+    if keys[pygame.K_RIGHT]:
+        player.move_right(PLAYER_VEL)
+
 #inside of main, run event loops (ie whats hanlding the collisions etc.)
 def main(window):
     clock = pygame.time.Clock()
@@ -89,7 +99,9 @@ def main(window):
             if event.type == pygame.QUIT:
                 run = False
                 break
-
+        
+        player.loop(FPS)
+        handle_move(player)
         draw(window, background, bg_image, player)
 
     pygame.quit()
